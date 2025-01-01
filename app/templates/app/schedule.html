@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    {% for Schedule in Schedule_list %}
+        <div class="Schedule">
+            <h2>Date: <a href="">{{Schedule.date}}</a></h2>
+            <p>Time: {{Schedule.time_slot}}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+    {% for BarangayService in BarangayService_list %}
+        <div class="BarangayService">
+            <h2>Name: <a href="">{{BarangayService.name}}</a></h2>
+            <p>Description: {{BarangayService.description}}</p>
+
+        </div>
+    {% endfor %}
+{% endblock content %}

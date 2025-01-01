@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+    {% for Appointment in Appointment_list %}
+        <div class="Appointment-entry">
+            <h2>User: <a href="">{{Appointnemt.user.username}}</a></h2>
+            <p>Service: {{Appointment.service.name}}</p>
+            <p>Service Name: {{Appointment.service.name}}</p> 
+            <p>Schedule:
+                {% if Appointment.schedule %}
+                    {{Appointment.schedule.date}} at {{Appointment.schedule.time_slot}}
+                {% else %}
+                    No schedule assigned
+                {% endif %}
+            </p> 
+            <p>Status: {{ appointment.get_status_display }}</p> 
+            <p>Created at: {{ Appointment.created_at }}</p>         
+        </div>
+    {% empty %}
+        <p>No Appointment Available.</p>
+    {% endfor %}
+{% endblock content %}

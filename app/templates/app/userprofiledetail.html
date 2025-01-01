@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+        <div class="UserProfile-entry">
+            <h2>User: <a href="">{{UserProfileDetail_list.user.username}}</a></h2>
+            <p>Contact Number:{{UserProfileDetail_list.contact_number}}</p>
+            <p>Address: {{UserProfileDetail_list.address}}</p>
+            <p>Birthdate: {{UserProfileDetail_list.birthdate}}</p>
+        </div>
+        <a href="{% url 'userprofileupdate' object.pk %}">+ Edit User Profile</a>
+        <a href="{% url 'userprofiledelete' object.pk %}">- Delete User Profile</a>
+{% endblock content %}

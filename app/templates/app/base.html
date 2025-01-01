@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Base</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'clearance' %}">Clearance</a>
+        <a href="{% url 'indigency' %}">Indigency</a>
+        <a href="{% url 'userprofile' %}">User Profile</a>
+        <a href="{% url 'schedule' %}">Schedule</a>
+        <a href="{% url 'barangayservice' %}">BarangayService</a>
+        <a href="{% url 'appointment' %}">Appointment</a>
+    </header>
+{% block content %}
+
+
+{% endblock content %}
+</body>
+</html>

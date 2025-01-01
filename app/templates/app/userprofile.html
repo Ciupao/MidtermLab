@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'userprofilecreate' %}">+ Create User Profile</a>
+    {% for UserProfile in UserProfile_list %}
+        <div class="UserProfile-entry">
+            <h2>User: <a href="{% url 'userprofiledetail' UserProfile.pk %}">{{UserProfile.user.username}}</a></h2>
+            <p>Contact Number:{{UserProfile.contact_number}}</p>
+            <p>Address: {{UserProfile.address}}</p>
+            <p>Birthdate: {{UserProfile.birthdate}}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
