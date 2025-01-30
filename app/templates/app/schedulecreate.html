@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="schedule-container">
+    <h1>Create a Schedule</h1>
+    <form action="{% url 'schedulecreate' %}" method="post">
+        {% csrf_token %}
+        
+        <div class="form-field">
+            <label for="id_date">Choose a date:</label>
+            <input type="date" id="id_date" name="date" value="{{ form.date.value }}" 
+                   min="{{ today }}" max="{{ max_date }}" required>
+            {% for error in form.date.errors %}
+                <small class="error-message">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <div class="form-field">
+            <label for="id_time_slot">Choose a time slot:</label>
+            <select id="id_time_slot" name="time_slot" required>
+                {% for slot in time_slots %}
+                    <option value="{{ slot }}">{{ slot }}</option>
+                {% endfor %}
+            </select>
+            {% for error in form.time_slot.errors %}
+                <small class="error-message">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        {% if form.non_field_errors %}
+            <div class="non-field-errors">
+                {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <input type="submit" value="Save" class="submit-btn">
+    </form>
+
+    {% if form.date.errors %}
+    <script>
+        alert("You can only schedule once per day.");
+    </script>
+    {% endif %}
+</div>
+{% endblock content %}

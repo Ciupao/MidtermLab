@@ -1,22 +1,34 @@
 {% extends 'app/base.html' %}
 {% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock css %}
+
 {% block content %}
-    {% for Appointment in Appointment_list %}
-        <div class="Appointment-entry">
-            <h2>User: <a href="">{{Appointnemt.user.username}}</a></h2>
-            <p>Service: {{Appointment.service.name}}</p>
-            <p>Service Name: {{Appointment.service.name}}</p> 
-            <p>Schedule:
-                {% if Appointment.schedule %}
-                    {{Appointment.schedule.date}} at {{Appointment.schedule.time_slot}}
-                {% else %}
-                    No schedule assigned
-                {% endif %}
-            </p> 
-            <p>Status: {{ appointment.get_status_display }}</p> 
-            <p>Created at: {{ Appointment.created_at }}</p>         
-        </div>
-    {% empty %}
-        <p>No Appointment Available.</p>
-    {% endfor %}
+    <div class="profile-container">
+        {% for Appointment in Appointment_list %}
+            <div class="profile-card">
+                <h2>User: {{Appointment.user.username}}</h2>
+                <p>Service: {{Appointment.service.name}}</p>
+                <p>Service Name: {{Appointment.service.name}}</p> 
+                <p>Schedule:
+                    {% if Appointment.schedule %}
+                        {{Appointment.schedule.date}} at {{Appointment.schedule.time_slot}}
+                    {% else %}
+                        No schedule assigned
+                    {% endif %}
+                </p> 
+                <p>Status: {{ Appointment.get_status_display }}</p> 
+                <p>Created at: {{ Appointment.created_at }}</p>         
+                <div class="card-actions">
+                    <a href="{% url 'appointmentcreate' %}" class="btn view">+ Create Appointment</a>
+                    <a href="{% url 'appointmentdetail' Appointment.pk %}" class="btn view">View</a>
+                    <a href="{% url 'appointmentupdate' Appointment.pk %}" class="btn update">Update</a>
+                    <a href="{% url 'appointmentdelete' Appointment.pk %}" class="btn delete">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
 {% endblock content %}

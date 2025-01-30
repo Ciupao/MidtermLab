@@ -1,5 +1,84 @@
-{% extends 'app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+{% block content %}
+
+<center id="Log-in">
+    <h1>Welcome to the Barangay Document Appointment System</h1>
+    <p>Please Log In</p>
+    <form id="login-form" method="post" >
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+
+        <button type="submit">Log In</button>
+        <button type="submit">Register</button>
+    </form>
+</center>
+
+<!--<section id="appointment">
+    <h2>Book an Appointment</h2>
+    <form id="appointment-form">
+        <label for="document">Choose Document:</label>
+        <select id="document" name="document">
+            <option value="clearance">Barangay Clearance</option>
+            <option value="indigency">Barangay Indigency</option>
+            <option value="id">Barangay ID</option>
+        </select>
+
+        <label for="appointment-date">Choose Date:</label>
+        <input type="date" id="appointment-date" name="appointment_date">
+
+        <button type="submit">Submit Appointment</button>
+    </form>
+</section>-->
+
+    <!--{% for UserProfile in UserProfile_list %}
+        <div class="UserProfile-entry">
+            <h2>User: <a href="{% url 'userprofiledetail' UserProfile.pk %}">{{UserProfile.user.username}}</a></h2>
+            <p>Contact Number:{{UserProfile.contact_number}}</p>
+            <p>Address: {{UserProfile.address}}</p>
+            <p>Birthdate: {{UserProfile.birthdate}}</p>
+        </div>
+        {% endfor %}-->
+<footer>
+    <p>&copy; 2025 Barangay Appointment System. All Rights Reserved.</p>
+</footer>
+
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock content %}
+</body>
+</html>
+<!--{% extends 'app/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock css %}
 
 {% block content %}
-    <h1>About Page</h1>
+    <div class="profile-container">
+        {% for Schedule in Schedule_list %}
+        <div class="profile-card">
+            <h2>Date:{{ Schedule.date }}</h2>
+            <p>Time: {{ Schedule.time_slot }}</p>
+            <div class="card-actions">
+                <a href="{% url 'schedulecreate' %}" class="btn view">+ Create Schedule</a>
+                <a href="{% url 'scheduledetail' Schedule.pk %}" class="btn view">View</a>
+                <a href="{% url 'scheduleupdate' Schedule.pk %}" class="btn update">Update</a>
+                <a href="{% url 'scheduledelete' Schedule.pk %}" class="btn delete">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
 {% endblock content %}

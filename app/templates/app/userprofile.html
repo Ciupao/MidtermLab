@@ -1,13 +1,33 @@
 {% extends 'app/base.html' %}
 {% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+{% endblock css %}
+
 {% block content %}
-<a href="{% url 'userprofilecreate' %}">+ Create User Profile</a>
-    {% for UserProfile in UserProfile_list %}
-        <div class="UserProfile-entry">
-            <h2>User: <a href="{% url 'userprofiledetail' UserProfile.pk %}">{{UserProfile.user.username}}</a></h2>
-            <p>Contact Number:{{UserProfile.contact_number}}</p>
-            <p>Address: {{UserProfile.address}}</p>
-            <p>Birthdate: {{UserProfile.birthdate}}</p>
+    <div class="profile-container">
+        {% for UserProfile in userprofile_list %}
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="{% static 'images/default-avatar.png' %}" alt="Profile Image" class="profile-img">
+                <h3>{{ UserProfile.user.username }}</h3>
+                <p class="role-tag">Registered User</p>
+            </div>
+
+            <div class="profile-info">
+                <p><i class="fas fa-phone"></i> <strong>Contact:</strong> {{ UserProfile.contact_number }}</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> {{ user.email }}</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> {{ UserProfile.address }}</p>
+                <p><i class="fas fa-birthday-cake"></i> <strong>Birthdate:</strong> {{ UserProfile.birthdate }}</p>
+            </div>
+
+            <div class="card-actions">
+                <a href="{% url 'userprofiledetail' UserProfile.pk %}" class="btn view">View</a>
+                <a href="{% url 'userprofileupdate' UserProfile.pk %}" class="btn update">Update</a>
+                <a href="{% url 'userprofiledelete' UserProfile.pk %}" class="btn delete">Delete</a>
+            </div>
         </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock content %}

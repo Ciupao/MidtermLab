@@ -1,10 +1,66 @@
 {% extends 'app/base.html' %}
 {% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{% endblock css %}
+
 {% block content %}
-    <h1>New User Profile</h1>
+    <div class="profile-customization-form">
+        <h1>Customize Your Profile</h1>
+        {% if error_message %}
+        <div class="alert">{{ error_message }}</div>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required>
+
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" value="{{ user.username }}" required>
+
+            <label for="contact_number">Contact Number:</label>
+            <input type="text" id="contact_number" name="contact_number" value="{{ UserProfile.contact_number }}" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="{{ UserProfile.address }}" required>
+
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate" value="{{ UserProfile.birthdate }}" required>
+
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+{% endblock content %}
+
+<!--<div>
+    <h1>Customize Your Profile</h1>
     <form action="{% url 'userprofilecreate' %}" method="post">
         {% csrf_token %}
-        {{form.as_p}}
+        <div>
+            <label for="id_contact_number">Contact Number:</label>
+            <input type="number" id="id_contact_number" name="contact_number">
+        </div>
+                <div>
+            <label for="id_email">Email:</label>
+            <input type="text" id="id_email" name="email">
+        </div>
+        <div>
+            <label for="id_address">Address:</label>
+            <input type="text" id="id_address" name="address">
+        </div>
+        <div>
+            <label for="id_birthdate">Birthdate:</label>
+            <input type="date" id="id_birthdate" name="birthdate">
+        </div>
+        {% if messages %}
+            <div class="alert alert-danger">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+            </div>
+        {% endif %}
         <input type="submit" value="Save">
     </form>
-{% endblock content %}
+</div>-->

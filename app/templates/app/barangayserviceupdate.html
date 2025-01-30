@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="update-center-content">
+    <h1>Edit Services </h1>
+    <form action="{% url 'barangayserviceupdate' object.pk %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Update">
+    </form>
+</div>
+{% endblock content %}

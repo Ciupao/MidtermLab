@@ -1,0 +1,60 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="appointment-container">
+    <h1>Create Appointment</h1>
+    <form action="{% url 'appointmentcreate' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="user" value="{{ request.user.pk }}">
+
+        <div class="form-field">
+            <label for="id_service">Service:</label>
+            <select name="service" id="id_service">
+                {% for BarangayService in services %}
+                    <option value="{{ BarangayService.pk }}" {% if BarangayService.pk == form.service.value %} selected {% endif %}>
+                        {{ BarangayService }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% for error in form.service.errors %}
+                <small>{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <div class="form-field">
+            <label for="id_schedule">Schedule:</label>
+            <select name="schedule" id="id_schedule">
+                {% for Schedule in schedules %}
+                    <option value="{{ Schedule.pk }}" {% if Schedule.pk == form.schedule.value %} selected {% endif %}>
+                        {{ Schedule }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% for error in form.schedule.errors %}
+                <small>{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <div class="form-field">
+            <label for="id_status">Status:</label>
+            <select name="status" id="id_status">
+                {% for key, value in status_choices %}
+                    <option value="{{ key }}" {% if key == form.status.value %} selected {% endif %}>
+                        {{ value }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% for error in form.status.errors %}
+                <small>{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <input type="submit" class="submit-btn" value="Save">
+    </form>
+</div>
+{% endblock content %}

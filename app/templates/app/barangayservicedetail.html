@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div>
+    <div class="UserProfile-entry">
+        <h2>Name: <a href="">{{BarangayServiceDetail_list.name}}</a></h2>
+        <p>Description: {{BarangayServiceDetail_list.description}}</p>
+        <button type="submit"><a href="{% url 'barangayservice' %}">OK</a></button>
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</div>
+
+{% endblock content %}

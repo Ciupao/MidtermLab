@@ -1,10 +1,20 @@
 {% extends 'app/base.html' %}
 {% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{% endblock css %}
 {% block content %}
-    <h1>Edit User Profile</h1>
-    <form action="{% url 'userprofileupdate' object.pk %}" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Update">
-    </form>
+    <div class="profile-update-container">
+        <h1>Update Your Profile</h1>
+            {% if error_message %}
+            <div class="alert">{{ error_message }}</div>
+            {% endif %}
+            <form action="{% url 'userprofileupdate' object.pk %}" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Update">
+            </form>
+    </div>
 {% endblock content %}

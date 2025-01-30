@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7); /* Soft pink gradient */
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "images/bg3.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(6px); 
+            z-index: -1;
+        }
+
+        #Log-in {
+            background: rgba(255, 255, 255, 0.3); 
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #Log-in h1 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        #Log-in p {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        #login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #login-form input {
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        #login-form input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+            outline: none;
+        }
+
+        #login-form button {
+        padding: 12px;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        }
+
+        #login-form button:hover {
+            background: linear-gradient(135deg, #2980b9, #1d6fa5);
+            transform: scale(1.05);
+        }
+
+        #login-form a button {
+            padding: 12px;
+            background: linear-gradient(135deg, #ff7675, #d63031);
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #login-form a button:hover {
+            background: linear-gradient(135deg, #e84393, #c0392b);
+            transform: scale(1.05);
+        }
+</style>
+</head>
+<body>
+    {% block content %}
+    <div id="Log-in">
+        <h1>Welcome to the Barangay Document Appointment System</h1>
+        <p>Please Log In</p>
+        <form id="login-form" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="username"></label>
+                <input type="text" placeholder="Enter Your Username" name="username" required>
+                <br><br>
+                <label for="password"></label>
+                <input type="password" placeholder="Enter Your Password" name="password" required>
+            </div>
+            <button type="submit">Log In</button>
+            <a href="{% url 'signup' %}">
+                <button type="button">Register</button>
+            </a>
+        </form>
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
+{% endblock content %} 
+</body>
+</html>

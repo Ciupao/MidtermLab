@@ -1,0 +1,589 @@
+/* Appointmet */
+.appointment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    height: 90vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.appointment-container h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.appointment-container form {
+    background-color: #ffffff;
+    width: 500px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appointment-container form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.appointment-container .form-field {
+    width: 100%;
+    text-align: left;
+    margin: 15px 0;
+}
+
+.appointment-container .form-field label {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.appointment-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.appointment-container select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.appointment-container small {
+    color: red;
+    font-size: 1rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.appointment-container .submit-btn {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+.appointment-container .submit-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/*Barangay Service*/
+.service-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh; 
+    text-align: center;
+}
+
+.service-container h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.service-container form {
+    background-color: #ffffff;
+    width: 500px; 
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.service-container form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-container .form-field {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.service-container .form-field label {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.service-container select,
+.service-container input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.service-container select:focus,
+.service-container input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.service-container small {
+    color: red;
+    font-size: 1rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.service-container .alert {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+.service-container .submit-btn {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+.service-container .submit-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/*Schedule*/
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh; 
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.schedule-container h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.schedule-container form {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px; 
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.schedule-container form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.schedule-container .form-field {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.schedule-container .form-field label {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.schedule-container input[type="date"],
+.schedule-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.schedule-container input[type="date"]:focus,
+.schedule-container select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.schedule-container .submit-btn {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+.schedule-container .submit-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Profile Container */
+.profile-container {
+    display: flex;
+    justify-content: center;   
+    align-items: center;     
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    height: 90vh;
+    position: relative;       
+}
+
+.profile-card {
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    width: 750px;
+    height: 750px;
+    padding: 50px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-card h3 {
+    color: #2c3e50;
+    font-size: 2.5rem; 
+    margin-bottom: 20px;
+}
+
+.profile-card p {
+    color: #7f8c8d;
+    font-size: 1.5rem; 
+    margin-bottom: 15px;
+}
+
+.card-actions .btn {
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px 0;
+}
+
+.card-actions .btn.view {
+    background-color: #3498db;
+    color: white;
+}
+
+.card-actions .btn.update {
+    background-color: #f1c40f;
+    color: white;
+}
+
+.card-actions .btn.delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.card-actions .btn:hover {
+    transform: scale(1.1);
+    filter: brightness(90%);
+}
+
+form {
+    max-width: 750px; 
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+form h1 {
+    font-size: 3rem; 
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    font-size: 1.5rem; 
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form input[type="submit"] {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.5rem; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+form input[type="submit"] {
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #34495e;
+    transform: scale(1.05);
+}
+
+.alert {
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+}
+
+/* View Profile */
+.UserProfile-entry {
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    padding: 85px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+ 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.UserProfile-entry h2 {
+    font-size: 2.5rem; 
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.UserProfile-entry h2 a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.UserProfile-entry h2 a:hover {
+    color: #2980b9;
+    text-shadow: 0 2px 10px rgba(52, 152, 219, 0.5);
+}
+
+.UserProfile-entry p {
+    font-size: 1.2rem; 
+    color: #7f8c8d;
+    margin: 15px 0;
+}
+
+.UserProfile-entry button {
+    background-color: #2c3e50;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 30px;
+}
+
+.UserProfile-entry button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.UserProfile-entry button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.UserProfile-entry button a:hover {
+    text-decoration: underline;
+}
+
+/* User Update */
+.update-center-content {
+    display: flex;
+    justify-content: center;     
+    align-items: center;         
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    font-size: 18px; 
+    width: 80%; 
+    margin: 0 auto;
+}
+
+form {
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    width: 100%;
+    max-width: 750px; 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+form h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+form .form-field {
+    margin: 15px 0;
+    text-align: left;
+}
+
+form label {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input[type="text"], 
+form input[type="email"], 
+form input[type="password"], 
+form textarea {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.25rem; 
+    margin-top: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+form input[type="submit"] {
+    background-color: #2c3e50; 
+    color: white;
+    padding: 18px 40px;
+    font-size: 1.5rem; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px; 
+    width: auto;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: scale(1.05); 
+}
+
+.alert {
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 750px;
+}
+
+form input, form textarea {
+    margin-bottom: 20px;
+}
+
+/* User Delete */
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column; 
+}

@@ -1,0 +1,45 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="service-container">
+    <h1>Choose Services</h1>
+    <form action="{% url 'barangayservicecreate' %}" method="post">
+        {% csrf_token %}
+        
+        <div class="form-field">
+            <label for="id_name">Services:</label>
+            <select name="name" id="id_name">
+                {% for key, value in names %}
+                <option value="{{ key }}">{{ value }}</option>
+                {% endfor %}
+            </select>
+            {% for error in form.name.errors %}
+            <small>{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        <div class="form-field">
+            <label for="id_description">Description:</label>
+            <input type="text" id="id_description" name="description">
+            {% for error in form.description.errors %}
+            <small>{{ error }}</small>
+            {% endfor %}
+        </div>
+
+        {% if messages %}
+        <div class="alert">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <input type="submit" class="submit-btn" value="Save">
+    </form>
+</div>
+{% endblock content %}

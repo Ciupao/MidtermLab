@@ -1,5 +1,66 @@
 {% extends 'app/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
 
 {% block content %}
-    <h1>Home Page</h1>
+    <div class="search-box">
+        <form method="GET" action="{% url 'search_redirect' %}" class="search-container">
+            <input type="text" name="q" placeholder="Search for anything..." required>
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+
+    <div id="home" class="hero">
+        <h1>Welcome to the Barangay Document Appointment System</h1>
+        <p>Schedule your appointment for Barangay Clearance, Indigency, or ID.</p>
+        <button onclick="window.location.href='userprofile/create'">Make Appointment</button>
+    </div>
+    
+    <div id="document-section">
+        <div id="img">
+            <h1>Get your Barangay Clearance Now!</h1>
+            <a href="{% url 'userprofilecreate' %}"><img src="{% static 'images/Clearance.jpg' %}" alt="Clearance"></a>
+            <h1>Get your Barangay Indigency Now!</h1>
+            <a href="{% url 'userprofilecreate' %}"><img src="{% static 'images/Indigency.jpg' %}" alt="Indigency"></a>
+            <h1>Get your Barangay ID Now!</h1>
+            <a href="{% url 'userprofilecreate' %}"><img src="{% static 'images/ID.jpg' %}" alt="ID"></a>
+        </div>
+    </div>
+    
+    </div>
+<script src="{% static 'js/scripts.js' %}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let username = "{{ user.username|escapejs }}";
+
+        if (username) {
+            showNotification(`Welcome back, ${username}!`);
+        }
+    });
+
+    function showNotification(message) {
+        let notification = document.createElement("div");
+        notification.innerHTML = message;
+        notification.style.position = "fixed";
+        notification.style.top = "20px";
+        notification.style.right = "20px";
+        notification.style.backgroundColor = "#4CAF50";
+        notification.style.color = "white";
+        notification.style.padding = "15px";
+        notification.style.borderRadius = "5px";
+        notification.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.2)";
+        notification.style.zIndex = "1000";
+        notification.style.transition = "opacity 0.5s ease-in-out";
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.opacity = "0";
+            setTimeout(() => document.body.removeChild(notification), 500);
+        }, 3000);
+    }
+</script>
 {% endblock content %}
